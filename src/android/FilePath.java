@@ -134,7 +134,7 @@ public class FilePath extends CordovaPlugin {
         //copy file and send new file path
         String fileName = getFileName(contentUri);
         if (!TextUtils.isEmpty(fileName)) {
-            File folder = new File (Environment.getExternalStorageDirectory().getPath() +
+            File folder = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath() +
                     File.separator +  getApplicationName(context));
 
             boolean success = true;
@@ -144,7 +144,7 @@ public class FilePath extends CordovaPlugin {
             }
             
             if (success) {
-                File copyFile = new File(Environment.getExternalStorageDirectory().getPath() +
+                File copyFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath() +
                         File.separator +  getApplicationName(context) + File.separator + fileName);
                 copy(context, contentUri, copyFile);
                 return copyFile.getAbsolutePath();
