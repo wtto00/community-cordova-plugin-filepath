@@ -1,6 +1,9 @@
-# cordova-plugin-filepath
+[![NPM version](https://img.shields.io/npm/v/community-cordova-plugin-filepath)](https://www.npmjs.com/package/community-cordova-plugin-filepath)
+[![Downloads](https://img.shields.io/npm/dm/community-cordova-plugin-filepath)](https://www.npmjs.com/package/community-cordova-plugin-filepath)
 
-**PLEASE NOTE: This plugin is no longer actively maintained.**
+#### This is a fork of the original plugin cordova-plugin-filepath
+
+# community-cordova-plugin-filepath
 
 This plugin allows you to resolve the native filesystem path for Android content
 URIs and is based on code in the [aFileChooser](https://github.com/iPaulPro/aFileChooser/blob/master/aFileChooser/src/com/ipaulpro/afilechooser/utils/FileUtils.java) library.
@@ -10,14 +13,14 @@ Original inspiration [from StackOverflow](http://stackoverflow.com/questions/200
 ## Installation
 
 ```bash
-$ cordova plugin add cordova-plugin-filepath
+$ cordova plugin add community-cordova-plugin-filepath
 ```
 
 ## Supported Platforms
 
 * Android
 
-## Usage
+## Usage    
 
 Once installed the plugin defines the `window.FilePath` object. To resolve a
 file path:
