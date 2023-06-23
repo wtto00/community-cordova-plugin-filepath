@@ -79,9 +79,9 @@ public class FilePath extends CordovaPlugin {
         this.callback = callbackContext;
         this.uriStr = args.getString(0);
         if (action.equals("resolveNativePath")) {
-            if (PermissionHelper.hasPermission(this, READ)) {
+            
                 resolveNativePath();
-            }
+          
             else {
                 getReadPermission(READ_REQ_CODE);
             }
