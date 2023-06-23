@@ -82,9 +82,7 @@ public class FilePath extends CordovaPlugin {
             
                 resolveNativePath();
           
-            else {
-                getReadPermission(READ_REQ_CODE);
-            }
+          
 
             return true;
         }
