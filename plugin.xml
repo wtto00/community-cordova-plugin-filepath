@@ -18,7 +18,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="community-cordova-plugin-filepath" version="1.7.0">
+        id="community-cordova-plugin-filepath" version="1.7.1">
     <name>community-cordova-plugin-filepath</name>
     <description>Resolve native file paths from content URLs for Cordova platforms</description>
     <license>Apache 2.0</license>

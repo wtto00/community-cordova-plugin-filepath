@@ -79,12 +79,20 @@ public class FilePath extends CordovaPlugin {
         this.callback = callbackContext;
         this.uriStr = args.getString(0);
         if (action.equals("resolveNativePath")) {
-            
-                resolveNativePath();
-          
-          
 
-            return true;
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            //need to use Android permissions plugin to request Android 13 permissions (READ_MEDIA_IMAGES,READ_MEDIA_VIDEO)
+                resolveNativePath();
+                return true;
+            } else{
+               if (PermissionHelper.hasPermission(this, READ)) {
+                   resolveNativePath();
+               }
+               else {
+                   getReadPermission(READ_REQ_CODE);
+               }
+               return true;
+            }
         }
         else {
             JSONObject resultObj = new JSONObject();
