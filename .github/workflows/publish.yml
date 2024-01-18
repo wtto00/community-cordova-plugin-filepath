@@ -1,0 +1,31 @@
+name: "Publish"
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          draft: true
+          generate_release_notes: true
+
+  Publish:
+    needs: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3.1.0
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NPM_CONFIG_PROVENANCE: true
